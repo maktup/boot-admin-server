@@ -2,16 +2,27 @@
 
 IMPORTANTE:
 ----------
-El 'ARCHIVO DE CONFIGURACION' para el SERVER: 'boot-admin-server', se manejara en la ruta del 'GITHUB': '/boot-admin-server.properties' 
+CONSIDERAR que los DNS, deben estar regsitrados en el archivo HOST, del S.O. 
+El 'ARCHIVO DE CONFIGURACION' para el MICROSERVICIO: 'department-service', se manejara en la ruta del 'GITHUB': '/department-service.properties' 
 
+Los LINKs [GET] son:
 
-Acceder a la URL del SERVER: 'BOOT-ADMIN' ingresar a: [http://localhost:8088/] 
+1. consultarDepartamentosAll: [http://capacitacion.microservicios.department/departmentservice/get/departamentos]
+   http://capacitacion.microservicios.department/departmentservice/get/departamentos
+
+2. consultarDepartamentosPorId: [http://capacitacion.microservicios.department/departmentservice/get/departamentos/{id}]  
+   http://capacitacion.microservicios.department/departmentservice/get/departamentos/1
+   
+3. consultarDepartamentosPorOrganizacion: [http://capacitacion.microservicios.department/departmentservice/get/organizaciones/{organizationId}/departamentos]   
+   http://capacitacion.microservicios.department/departmentservice/get/organizaciones/1/departamentos
+
+4. consultarDepartamentosConEmpleadosPorOrganizacion: [http://capacitacion.microservicios.department/departmentservice/get/organizaciones/{organizationId}/departamentos/empleados]   
+   http://capacitacion.microservicios.department/departmentservice/get/organizaciones/1/departamentos/empleados 
 
 
 DETALLE:
 -------
-Este SERVIDOR obtendra las INSTANCIAS de los MICROSERVICIOS registradas en el SERVER de 'DISCOVERY' (EUREKA), y las mapeara en su CONSOLA.
+ 
+Para DETALLES del MICROSERVICIO, apoyarse en ACTUATOR ingresando a: 'http://capacitacion.microservicios.department/actuator'
 
-
-Para DETALLES del MICROSERVICIO, apoyarse en ACTUATOR ingresando a: 'http://localhost:8088/actuator'
-
+ 
