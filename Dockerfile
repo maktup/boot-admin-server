@@ -31,6 +31,13 @@ EXPOSE 8080
 #9. CREAR 'VARIABLE DE ENTORNO' 'APP_HOME': 
 ENV APP_HOME /app
 
+#------------------ EXTRA: configuracion DINANICA de 'VARIABLES de ENTORNO' ------------------#
+ENV NOMBRE_MICROSERVICIO=boot-admin-server
+#ENV BOOTADMIN_USUARIO=admin   [Manejado con SECRETs]
+#ENV BOOTADMIN_PASSWORD=admin  [Manejado con SECRETs]
+ENV SERVICIOS_IGNORADOS=boot-admin-server,gateway-server,discovery-server
+#------------------ EXTRA: configuracion DINANICA de 'VARIABLES de ENTORNO' ------------------#
+
 #10. CREAR 'VARIABLE DE ENTORNO' 'JAVA_OPTS':  
 ENV JAVA_OPTS=""
 

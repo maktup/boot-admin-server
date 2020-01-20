@@ -2,16 +2,12 @@
 
 IMPORTANTE:
 ----------
-El 'ARCHIVO DE CONFIGURACION' para el SERVER: 'boot-admin-server', se manejara en la ruta del 'GITHUB': '/boot-admin-server.properties' 
-
-
-Acceder a la URL del SERVER: 'BOOT-ADMIN' ingresar a: [http://localhost:8088/] 
-
+- CONSIDERAR que los DNS, deben estar registrados en el archivo HOST del S.O. 
+- El 'ARCHIVO DE CONFIGURACION' para el MICROSERVICIO: 'boot-admin-server', se manejara configurara dentro del SCRIPT: [2_boot-admin-server_[Deployment].yml] 
+- Dentro del archivo: 'DOCKERFILE' se estan manejando 'VARIABLES DE ENTORNO' para algunas configuraciones. 
+- Acceder a la URL del SERVER: 'BOOT-ADMIN' ingresando a: [http://capacitacion.microservicios.boot-admin-server] 
 
 DETALLE:
 -------
-Este SERVIDOR obtendra las INSTANCIAS de los MICROSERVICIOS registradas en el SERVER de 'DISCOVERY' (EUREKA), y las mapeara en su CONSOLA.
-
-
-Para DETALLES del MICROSERVICIO, apoyarse en ACTUATOR ingresando a: 'http://localhost:8088/actuator'
+Para DETALLES del MICROSERVICIO, apoyarse en ACTUATOR ingresando a: 'http://capacitacion.microservicios.boot-admin-server/actuator'
 
