@@ -6,19 +6,25 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * Matches true if {spring.boot.admin.security.enabled} property is defined and value is false.
- */
-public class SpringBootAdminInsecureConditional implements Condition {
-
-    @Override
-    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
-        Environment environment = conditionContext.getEnvironment();
-
-        if (environment != null && Boolean.FALSE.toString().equalsIgnoreCase(
-                environment.getProperty(Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED))) {
-            return true;
-        }
-
-        return false;
-    }
-}
+ * SpringBootAdminInsecureConditional
+ * @author cguerra
+ **/
+ public class SpringBootAdminInsecureConditional implements Condition{
+	
+	    @Override
+	    public boolean matches( ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata ){
+	        
+	    	   Environment objEntorno = conditionContext.getEnvironment(); 
+	           boolean     vRetorno   = false; 
+	    	   
+	           if( (objEntorno != null) && Boolean.FALSE.toString().equalsIgnoreCase( objEntorno.getProperty( Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED ) ) ){
+	        	   vRetorno = true;
+	           }
+	           else{
+	        	   vRetorno = false;
+	           }
+	
+	           return vRetorno;
+	    }
+	    
+ }
