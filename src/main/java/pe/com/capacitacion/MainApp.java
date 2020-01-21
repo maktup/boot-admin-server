@@ -8,8 +8,8 @@ import de.codecentric.boot.admin.server.config.EnableAdminServer;
  * MainApp
  * @author cguerra
  **/
-@EnableAdminServer
 @SpringBootApplication
+@EnableAdminServer
 public class MainApp {
 
 	public static void main(String[] args) {
