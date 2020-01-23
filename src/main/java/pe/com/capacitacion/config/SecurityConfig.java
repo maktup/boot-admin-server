@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
 /**
- * SecurityConfig
+ * SecurityConfig  aplicacion de escenario: ESCENARIO 'SI SEGURO'. 
  * @author cguerra
  **/
  @Conditional( SpringBootAdminSecureConditional.class )

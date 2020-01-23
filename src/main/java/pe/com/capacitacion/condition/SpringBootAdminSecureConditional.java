@@ -6,7 +6,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * SpringBootAdminSecureConditional
+ * SpringBootAdminSecureConditional  aplicacion de escenario: ESCENARIO 'SI SEGURO'.
  * @author cguerra
  **/
  public class SpringBootAdminSecureConditional implements Condition{
@@ -20,7 +20,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 		       if( (objEntorno == null) || 
 		    		objEntorno.getProperty( Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED ) == null || 
 		    		Boolean.TRUE.toString().equalsIgnoreCase( objEntorno.getProperty( Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED ) ) ){ 
-		    	   vRetorno = true;
+		    	    vRetorno = true;
 		       }
 	           else{
 	        	   vRetorno = false;

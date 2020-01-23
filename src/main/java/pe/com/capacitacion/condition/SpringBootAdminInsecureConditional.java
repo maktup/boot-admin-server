@@ -6,7 +6,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * SpringBootAdminInsecureConditional
+ * SpringBootAdminInsecureConditional  aplicacion de escenario: ESCENARIO 'NO SEGURO'.
  * @author cguerra
  **/
  public class SpringBootAdminInsecureConditional implements Condition{
@@ -17,7 +17,8 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 	    	   Environment objEntorno = conditionContext.getEnvironment(); 
 	           boolean     vRetorno   = false; 
 	    	   
-	           if( (objEntorno != null) && Boolean.FALSE.toString().equalsIgnoreCase( objEntorno.getProperty( Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED ) ) ){
+	           if( (objEntorno != null) && 
+	        	   Boolean.FALSE.toString().equalsIgnoreCase( objEntorno.getProperty( Constants.SPRING_BOOT_ADMIN_SECURITY_ENABLED ) ) ){
 	        	   vRetorno = true;
 	           }
 	           else{

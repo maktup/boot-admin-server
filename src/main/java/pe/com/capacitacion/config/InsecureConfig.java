@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import pe.com.capacitacion.condition.SpringBootAdminInsecureConditional;
 
 /**
- * InsecureConfig
+ * InsecureConfig  aplicacion de escenario: ESCENARIO 'NO SEGURO'. 
  * @author cguerra
  **/
  @Conditional( SpringBootAdminInsecureConditional.class )
