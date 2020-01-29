@@ -1,6 +1,6 @@
 
-#[DEPLOYMENT]
-#2_boot-admin-server_[Deployment].yml
+#[SECRET-DEPLOYMENT-SERVICE]
+#2_boot-admin-server_[Deployment-Service].yml
 
 apiVersion: apps/v1
 kind: Deployment
@@ -41,4 +41,25 @@ spec:
               secretKeyRef:
                 key: BOOTADMIN_PASSWORD
                 name: boot-admin-server-secret
-
+                
+---
+ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: boot-admin-server
+  namespace: default
+  labels:
+    app: microservicio-boot-admin-server
+    role: backend
+    stage: production
+spec: 
+  ports:
+    - name: http
+      port: 8080
+  selector:
+    app: microservicio-boot-admin-server
+    version: v1.0.0
+  type: NodePort 
+ 
+  
