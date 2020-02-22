@@ -9,6 +9,10 @@
 #  adoptopenjdk/openjdk8:alpine-slim    90.2MB
 #-------------- [PESOS DE IMAGENES] -----------#
 
+
+#//----------------------------------------------------------------//#
+#//------------------------  [COMPILACION] ------------------------//#
+#//----------------------------------------------------------------//#
 FROM maven:3-jdk-8-alpine as CONSTRUCTOR 
 
 #1. CREA DIRECTORIO 'build':  
@@ -29,8 +33,10 @@ COPY src /build/src
 #6. EJECUTAR 'MAVEN': 
 RUN mvn clean package
 
-#//----------------------------------------------------------------//#
 
+#//----------------------------------------------------------------//#
+#//-------------------------  [EJECUCION] -------------------------//#
+#//----------------------------------------------------------------//#
 FROM adoptopenjdk/openjdk8:alpine-slim as RUNTIME
 
 #7. DOCUMENTANDO: 
@@ -42,36 +48,40 @@ EXPOSE 8080
 #9. CREAR 'VARIABLE DE ENTORNO' 'APP_HOME': 
 ENV APP_HOME /app
 
-#------------------ EXTRA: configuracion DINANICA de 'VARIABLES de ENTORNO' ------------------#
+
+#10. CREAR 'VARIABLE DE ENTORNO' [ADICIONALES], PARA EL 'MICROSERVICIO': 
+#--------------------------------------------------------------------------------------------#
 ENV NOMBRE_MICROSERVICIO=boot-admin-server
 #ENV BOOTADMIN_USUARIO=admin   [Manejado con SECRETs]
 #ENV BOOTADMIN_PASSWORD=admin  [Manejado con SECRETs]
 ENV SERVICIOS_IGNORADOS=boot-admin-server,gateway-server,discovery-server
-#------------------ EXTRA: configuracion DINANICA de 'VARIABLES de ENTORNO' ------------------#
+#--------------------------------------------------------------------------------------------#
 
-#10. CREAR 'VARIABLE DE ENTORNO' 'JAVA_OPTS':  
+
+#11. CREAR 'VARIABLE DE ENTORNO' 'JAVA_OPTS':  
 ENV JAVA_OPTS=""
 
-#11. CREANDO DIRECTORIO 'BASE': 
+#12. CREANDO DIRECTORIO 'BASE': 
 RUN mkdir $APP_HOME
 
-#12. CREANDO DIRECTORIO PARA 'ARCHIVOS DE CONFIGURACION': 
+#13. CREANDO DIRECTORIO PARA 'ARCHIVOS DE CONFIGURACION': 
 RUN mkdir $APP_HOME/config
 
-#13. CREANDO DIRECTORIO PARA 'LOGs': 
+#14. CREANDO DIRECTORIO PARA 'LOGs': 
 RUN mkdir $APP_HOME/log
 
-#14. CREANDO 'VOLUME' PARA 'ARCHIVOS DE CONFIGURACION': 
+#15. CREANDO 'VOLUME' PARA 'ARCHIVOS DE CONFIGURACION': 
 VOLUME $APP_HOME/config
 
-#15. CREANDO 'VOLUME' PARA 'LOGs':  
+#16. CREANDO 'VOLUME' PARA 'LOGs':  
 VOLUME $APP_HOME/log
 
-#16. DEFINIR UBICACION: 
+#17. DEFINIR UBICACION: 
 WORKDIR $APP_HOME
 
-#17. COPIAR .JAR DE LA IMAGEN:  
+#18. COPIAR .JAR DE LA IMAGEN:  
 COPY --from=CONSTRUCTOR /build/target/*.jar app.jar
 
-#18. EJECUTAR 'JAR': 
+#19. EJECUTAR 'JAR': 
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar" ]
+
