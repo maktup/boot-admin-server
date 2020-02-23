@@ -38,7 +38,7 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 			          .antMatchers( this.adminContextPath + ASSETS ).permitAll()
 			          .antMatchers( this.adminContextPath + LOGIN ).permitAll()
 			          .requestMatchers(EndpointRequest.toAnyEndpoint() ).permitAll()
-			          //.anyRequest().authenticated() 
+			          .anyRequest().authenticated() 
 			          .and()
 			          .formLogin()
 			          .loginPage( this.adminContextPath + LOGIN )
