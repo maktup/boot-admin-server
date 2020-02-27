@@ -80,6 +80,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId> 
 		</dependency>
+        
+	    <!-- IMPORTANTE: [KUBERNETES] --> 
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-kubernetes-all</artifactId>
+		    <version>0.3.0.RELEASE</version>
+		</dependency> 
   
     </dependencies>
 
