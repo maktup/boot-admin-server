@@ -81,13 +81,14 @@
 			<artifactId>spring-boot-starter-actuator</artifactId> 
 		</dependency>
         
-	    <!-- IMPORTANTE: [KUBERNETES] --> 
+	    <!-- IMPORTANTE: [KUBERNETES], obtiene demasiados objetos ...
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-kubernetes-all</artifactId>
 		    <version>0.3.0.RELEASE</version>
 		</dependency> 
-  
+        --> 
+        
     </dependencies>
 
     <build>
