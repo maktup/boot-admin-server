@@ -54,7 +54,7 @@ ENV APP_HOME /app
 ENV NOMBRE_MICROSERVICIO=boot-admin-server
 #ENV BOOTADMIN_USUARIO=admin   [Manejado con SECRETs]
 #ENV BOOTADMIN_PASSWORD=admin  [Manejado con SECRETs]
-ENV SERVICIOS_IGNORADOS=boot-admin-server,gateway-server,discovery-server,grafana-server,jaeger-server,kubernetes,prometheus-server,logstash-external-ip,oracle-external-ip
+ENV SERVICIOS_IGNORADOS=boot-admin-server,gateway-server,discovery-server,grafana-server,jaeger-server,kubernetes,prometheus-server,logstash-external-ip,oracle-external-ip,zipkin-server
 #--------------------------------------------------------------------------------------------#
 
 
