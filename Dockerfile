@@ -82,6 +82,12 @@ WORKDIR $APP_HOME
 #18. COPIAR .JAR DE LA IMAGEN:  
 COPY --from=CONSTRUCTOR /build/target/*.jar app.jar
 
-#19. EJECUTAR 'JAR': 
+#19. INSTALANDO 'NANO': 
+RUN apk add -u nano
+
+#19. INSTALANDO 'CURL': 
+RUN apk add -u curl
+
+#20. EJECUTAR 'JAR': 
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar app.jar" ]
 
